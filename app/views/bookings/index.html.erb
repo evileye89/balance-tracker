@@ -3,7 +3,8 @@
 <ul>
     <% @bookings.each do | booking | %>
         <li>
-            <% booking.category_id %>
+            <p><%= booking.category.name %></p>
+            <p><%= booking.amount %></p>
         </li>
     <% end %>
 </ul>

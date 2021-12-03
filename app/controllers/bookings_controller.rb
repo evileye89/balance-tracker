@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = Booking.includes(:category).all
   end
 end
