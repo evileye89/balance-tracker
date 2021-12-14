@@ -6,6 +6,7 @@
             <p><%= booking.created_at.strftime("%F %T") %></p>
             <p><%= booking.category.name %></p>
             <p><%= booking.amount %></p>
+            <%= link_to 'details', booking %>
         </li>
     <% end %>
 </ul>
