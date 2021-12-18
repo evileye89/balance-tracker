@@ -1,6 +1,23 @@
 <h1>Booking</h1>
 
-<p><%= @booking.created_at.strftime("%F %T") %></p>
-<p><%= @booking.category.name %></p>
-<p><%= @booking.amount %></p>
-<p><%= @booking.comment %></p>
+<div class="mb-2">
+    <%= link_to "edit", edit_booking_path(@booking) %>
+    | <%= link_to 'delete', booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+
+<div class="row">
+    <div class="col-6 text-end">created at: </div>
+    <div class="col-6"><%= @booking.created_at.strftime("%F %T") %></div>
+</div>
+<div class="row">
+    <div class="col-6 text-end">category: </div>
+    <div class="col-6"><%= @booking.category.name %></div>
+</div>
+<div class="row">
+    <div class="col-6 text-end">amount: </div>
+    <div class="col-6"><%= @booking.amount %></div>
+</div>
+<div class="row">
+    <div class="col-6 text-end">comment: </div>
+    <div class="col-6"><%= @booking.comment %></div>
+</div>
