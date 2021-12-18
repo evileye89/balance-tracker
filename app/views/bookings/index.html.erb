@@ -3,13 +3,15 @@
 <ul>
     <% @bookings.each do | booking | %>
         <li class="mb-2">
-            <div class="row">
-                <div class="col-3"><%= booking.created_at.strftime("%F %T") %></div>
-                <div class="col-3"><%= booking.amount %>€</div>
-                <div class="col-3"><%= booking.category.name %></div>
-                <div class="col-3"><%= booking.comment %></div>
-            </div>
-            <div><%= link_to 'details', booking %></div>
+            <a href="<%= booking_path(booking) %>">    
+                <div class="row">
+                    <div class="col-3"><%= booking.created_at.strftime("%F %T") %></div>
+                    <div class="col-3"><%= booking.amount %>€</div>
+                    <div class="col-3"><%= booking.category.name %></div>
+                    <div class="col-3"><%= booking.comment %></div>
+                </div>
+                <div><%= link_to 'details', booking_path(booking) %></div>
+            </a>
         </li>
     <% end %>
 </ul>
