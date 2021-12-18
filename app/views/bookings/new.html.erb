@@ -3,7 +3,7 @@
 <%= form_with model: @booking do |form| %>
     <div>
       <%= form.label :amount %><br>
-      <%= form.number_field :amount %>
+      <%= form.number_field :amount, :step => "0.01" %>
     </div>
   
     <div>
