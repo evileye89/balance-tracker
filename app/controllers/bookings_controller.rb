@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    puts @booking
     if @booking.save
       redirect_to @booking
     else
@@ -45,6 +45,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:amount, :category_id, :comment)
+    params.require(:booking).permit(:amount, :category_id, :account_id, :comment)
   end
 end
