@@ -2,6 +2,7 @@
 
 <div class="mb-2">
     <%= link_to "edit", edit_balance_path(@balance) %>
+    | <%= link_to 'delete', balance_path(@balance), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
 
 <div class="row">

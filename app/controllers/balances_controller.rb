@@ -31,6 +31,13 @@ class BalancesController < ApplicationController
         end
     end
 
+    def destroy
+        @balance = Balance.find(params[:id])
+        @balance.destroy
+    
+        redirect_to root_path
+    end
+
     private
 
     def balance_params
