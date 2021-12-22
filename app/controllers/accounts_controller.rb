@@ -21,6 +21,20 @@ class AccountsController < ApplicationController
         end
     end
 
+    def edit
+        @account = Account.find(params[:id])
+    end
+
+    def update
+        @account = Account.find(params[:id])
+
+        if @account.update(account_params)
+            redirect_to @account
+        else
+            render :edit
+        end
+    end
+
     private
     
     def account_params
