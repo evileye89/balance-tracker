@@ -3,19 +3,33 @@ class BalancesController < ApplicationController
         @balance = Balance.find(params[:id])
     end
 
+    def new
+        @balance = Balance.new
+    end
+    
+    def create
+        @balance = Balance.new(balance_params)
+
+        if @balance.save
+            redirect_to @balance
+        else
+            render :new
+        end
+    end
+
     def edit
         @balance = Balance.find(params[:id])
-      end
+    end
     
-      def update
+    def update
         @balance = Balance.find(params[:id])
     
         if @balance.update(balance_params)
-          redirect_to @balance
+            redirect_to @balance
         else
-          render :edit
+            render :edit
         end
-      end
+    end
 
     private
 
