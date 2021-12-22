@@ -1,0 +1,34 @@
+<%= form_with model: @balance do |form| %>
+    <div>
+        <%= form.label :year %><br>
+        <%= form.number_field :year %>
+        <% @balance.errors.full_messages_for(:year).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :month %><br>
+        <%= form.number_field :month %>
+        <% @balance.errors.full_messages_for(:month).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :balance %><br>
+        <%= form.number_field :balance, :step => "0.01" %>
+        <% @balance.errors.full_messages_for(:balance).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :account_id %><br>
+        <%= form.collection_select :account_id, Account.all, :id, :name, include_blank: false %>
+    </div>
+    
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
