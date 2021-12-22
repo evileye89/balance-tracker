@@ -1,0 +1,18 @@
+<h1>Accounts</h1>
+   
+<ul>
+    <% @accounts.each do | account | %>
+        <li class="mb-2">
+            <a href="<%= account_path(account) %>">    
+                <div class="row">
+                    <div class="col-3"><%= account.name %></div>
+                    <div class="col-3"><%= account.iban %></div>
+                </div>
+                <div>
+                    <%= link_to 'details', account_path(account) %>
+                    | <%= link_to 'delete', account_path(account), method: :delete, data: { confirm: "Are you sure?" } %>
+                </div>
+            </a>
+        </li>
+    <% end %>
+</ul>
