@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_203556) do
+ActiveRecord::Schema.define(version: 2021_12_22_155928) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "iban"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "balances", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.decimal "balance"
+    t.integer "account_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -36,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_12_21_203556) do
     t.integer "cost_type"
   end
 
+  add_foreign_key "balances", "accounts"
   add_foreign_key "bookings", "accounts"
   add_foreign_key "bookings", "categories"
 end
