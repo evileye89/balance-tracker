@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "bookings#index"
+  root "accounts#index"
   
   resources :bookings
   resources :balances
