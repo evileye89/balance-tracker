@@ -1,5 +1,9 @@
 <h1>Bookings</h1>
-   
+
+<div class="mb-2">
+    <%= link_to "new", new_booking_path %>
+</div>
+
 <ul>
     <% @bookings.each do | booking | %>
         <li class="mb-2">
@@ -11,7 +15,7 @@
                     <div class="col-3"><%= booking.comment %></div>
                 </div>
                 <div>
-                    <%= link_to 'details', booking_path(booking) %>
+                    <%= link_to 'edit', edit_booking_path(booking) %>
                     | <%= link_to 'delete', booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %>
                 </div>
             </a>
