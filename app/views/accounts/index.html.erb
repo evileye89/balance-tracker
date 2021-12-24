@@ -1,5 +1,9 @@
 <h1>Accounts</h1>
-   
+
+<div class="mb-2">
+    <%= link_to "new", new_account_path %>
+</div>
+
 <ul>
     <% @accounts.each do | account | %>
         <li class="mb-2">
@@ -9,7 +13,7 @@
                     <div class="col-3"><%= account.iban %></div>
                 </div>
                 <div>
-                    <%= link_to 'details', account_path(account) %>
+                    <%= link_to 'edit', edit_account_path(account) %>
                     | <%= link_to 'delete', account_path(account), method: :delete, data: { confirm: "Are you sure?" } %>
                 </div>
             </a>
