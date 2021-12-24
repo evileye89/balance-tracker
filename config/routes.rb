@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :bookings
   resources :balances
   resources :accounts
+  resources :categories
 end
