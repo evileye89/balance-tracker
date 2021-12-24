@@ -1,0 +1,10 @@
+.list-item {
+    border-radius: 10px;
+    background-color: rgba($color-secondary, 1.0); 
+    transition-duration: 0.4s;
+
+    &:hover {
+        background-color: rgba($color-secondary, 0.5);
+        color: $color-primary;
+    }
+}

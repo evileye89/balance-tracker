@@ -4,9 +4,9 @@
     <%= link_to "new", new_booking_path %>
 </div>
 
-<ul>
+<ul class="mx-0 px-0">
     <% @bookings.each do | booking | %>
-        <li class="mb-2">
+        <li class="list-item my-2 px-4">
             <a href="<%= booking_path(booking) %>">    
                 <div class="row">
                     <div class="col-3"><%= booking.created_at.strftime("%F %T") %></div>

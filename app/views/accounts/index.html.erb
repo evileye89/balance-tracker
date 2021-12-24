@@ -4,9 +4,9 @@
     <%= link_to "new", new_account_path %>
 </div>
 
-<ul>
+<ul class="mx-0 px-0">
     <% @accounts.each do | account | %>
-        <li class="mb-2">
+        <li class="list-item my-2 px-4">
             <a href="<%= account_path(account) %>">    
                 <div class="row">
                     <div class="col-3"><%= account.name %></div>

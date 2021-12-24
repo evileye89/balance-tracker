@@ -4,9 +4,9 @@
     <%= link_to "new", new_category_path %>
 </div>
 
-<ul>
+<ul class="mx-0 px-0">
     <% @categories.each do | category | %>
-        <li class="mb-2">
+        <li class="list-item my-2 px-4">
             <a href="<%= category_path(category) %>">    
                 <div class="row">
                     <div class="col"><%= category.name %></div>
