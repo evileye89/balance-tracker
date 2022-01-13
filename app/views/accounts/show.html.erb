@@ -14,12 +14,8 @@
     <div class="col-6"><%= @account.iban %></div>
 </div>
 
-<h3>Balances</h3>
-<% @account.balances.each do | balance | %>
-    <div class="row">
-        <div class="col-6 text-end"><%= number_to_currency(balance.balance, unit: "€", separator: ",", delimiter: ".", format: "%n %u") %></div>
-        <div class="col-6"><%= balance.year %>.<%= balance.month.to_s.rjust(2, '0') %>.</div>
-    </div>
-<% end %>
+<h3>Dashboard</h3>
+
+<%= render "dashboard" %>
 
 <%= render "back_to_accounts" %>

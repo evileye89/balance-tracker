@@ -1,12 +1,16 @@
 <table class="table table-dark table-stripped table-hover">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th scope="col">#</th>
+            <th scope="col">sum</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th scope="row">balance</th>
+            <td class="text-end">
+                <%= number_to_currency(@account.balances.inject(0) { |sum, item| sum + item.balance }, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %>
+            </td>
         </tr>
     </tbody>
 </table>

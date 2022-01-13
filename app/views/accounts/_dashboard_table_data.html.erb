@@ -17,18 +17,10 @@
     </thead>
     <tbody>
         <tr class="text-end">
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
-            <td class="col-1">1000,00€</td>
+            <% for i in 0..11 do %>
+                <% balance = @account.balances[i].present? ? @account.balances[i].balance : 0.0 %>
+                <td class="col-1"><%= number_to_currency(balance, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>
+            <% end %>
         </tr>
     </tbody>
 </table>
