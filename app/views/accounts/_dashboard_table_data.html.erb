@@ -19,7 +19,7 @@
         <tr class="text-end">
             <% for i in 1..12 do %>
                 <% 
-                    value = @account.balances.find_by(:month => i)
+                    value = @balances_per_year.find_by(:month => i)
                     balance = value.present? ? value.balance : 0
                 %>
                 <td class="col-1"><%= number_to_currency(balance, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>

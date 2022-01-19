@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
 
     def show
         @account = Account.find(params[:id])
+        @balances_per_year = Balance.where(:account_id => @account.id, :year => 2021)
     end
 
     def new
