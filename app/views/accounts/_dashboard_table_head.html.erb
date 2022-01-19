@@ -6,11 +6,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr styles="border-spacing: 0 20px;">
             <th scope="row">balance</th>
             <td class="text-end">
                 <%= number_to_currency(@balances_per_year.inject(0) { |sum, item| sum + item.balance }, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %>
             </td>
         </tr>
+
+        <% @account.bookings.group_by(&:category_id).each do |category_id, bookings| %>
+            <tr>
+                <th scope="row"><%=bookings.first.category.name%></th>
+                <td class="text-end">
+                    <%= number_to_currency(bookings.inject(0) { |sum, item| sum + item.amount }, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %>
+                </td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
