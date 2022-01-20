@@ -25,5 +25,17 @@
                 <td class="col-1"><%= number_to_currency(balance, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>
             <% end %>
         </tr>
+
+        <% @account.bookings.group_by(&:category_id).values.each do |bookings| %>
+            <tr class="text-end">
+                <% for i in 1..12 do %>
+                    <%
+                        bookings_per_month = bookings.select { |booking| booking.booked_at.mon == i}
+                        sum = bookings_per_month.inject(0) { |sum, item| sum + item.amount }
+                    %>
+                    <td class="col-1"><%= number_to_currency(sum, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>
+                <% end %>
+            </tr>
+        <% end %>
     </tbody>
 </table>
