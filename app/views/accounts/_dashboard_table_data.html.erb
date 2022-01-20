@@ -32,8 +32,9 @@
                     <%
                         bookings_per_month = bookings.select { |booking| booking.booked_at.mon == i}
                         sum = bookings_per_month.inject(0) { |sum, item| sum + item.amount }
+                        background_cls = sum >= 0 ? 'bg-success' : 'bg-danger'
                     %>
-                    <td class="col-1"><%= number_to_currency(sum, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>
+                    <td class="col-1 <%= background_cls %>"><%= number_to_currency(sum, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %></td>
                 <% end %>
             </tr>
         <% end %>

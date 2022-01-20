@@ -15,9 +15,13 @@
 
         <% @account.bookings.group_by(&:category_id).each do |category_id, bookings| %>
             <tr>
+                <%
+                    sum = bookings.inject(0) { |sum, item| sum + item.amount }
+                    background_cls = sum.positive? ? 'bg-success' : 'bg-danger'
+                %>
                 <th scope="row"><%=bookings.first.category.name%></th>
-                <td class="text-end">
-                    <%= number_to_currency(bookings.inject(0) { |sum, item| sum + item.amount }, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %>
+                <td class="text-end <%= background_cls %>">
+                    <%= number_to_currency(sum, unit: "€", separator: ",", delimiter: ".", format: "%n%u") %>
                 </td>
             </tr>
         <% end %>
