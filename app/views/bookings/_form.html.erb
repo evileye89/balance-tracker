@@ -6,6 +6,11 @@
         <div><%= message %></div>
       <% end %>
     </div>
+
+    <div>
+      <%= form.label :booked_at %><br>
+      <%= form.date_field :booked_at %>
+    </div>
   
     <div>
       <%= form.label :category_id %><br>

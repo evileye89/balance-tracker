@@ -9,7 +9,7 @@
         <li class="list-item my-2 px-4">
             <a href="<%= booking_path(booking) %>">    
                 <div class="row">
-                    <div class="col-3"><%= booking.created_at.strftime("%F %T") %></div>
+                    <div class="col-3"><%= booking.booked_at.strftime("%F %T") %></div>
                     <div class="col-3 text-end"><%= number_to_currency(booking.amount, unit: "€", separator: ",", delimiter: ".", format: "%n %u") %></div>
                     <div class="col-3"><%= booking.category.name %></div>
                     <div class="col-3"><%= booking.comment %></div>
