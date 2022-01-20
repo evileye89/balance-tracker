@@ -11,6 +11,7 @@ checkout project from guthub
 
 # run
 > cd <project_dir>
+
 direnv will start a nix-shell including all needed dependencies when switching to project dir.
 
 > rails s
