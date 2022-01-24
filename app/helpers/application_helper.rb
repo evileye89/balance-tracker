@@ -1,4 +1,4 @@
 module ApplicationHelper
-    include DateHelper
-    include CurrencyHelper
+    include DatesHelper
+    include CurrenciesHelper
 end
