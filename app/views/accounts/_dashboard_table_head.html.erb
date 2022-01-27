@@ -7,11 +7,11 @@
     </thead>
     <tbody>
         <tr styles="border-spacing: 0 20px;">
-            <%  balances_sum = calc_balances_per_year(@balances_per_year) %>
+            <%  balance_sum = calc_balances_per_year(@balances_per_year) %>
 
             <th scope="row">balance</th>
-            <td class="text-end <%= css_currency_bg(balances_sum) %>">
-                <%= as_euro(balances_sum) %>
+            <td class="text-end <%= css_currency_bg(balance_sum) %>">
+                <%= as_euro(balance_sum) %>
             </td>
         </tr>
 
