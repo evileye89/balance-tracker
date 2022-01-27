@@ -11,7 +11,7 @@
 
             <th scope="row">balance</th>
             <td class="text-end <%= css_currency_bg(balances_sum) %>">
-                <%= currency_as_euro(balances_sum) %>
+                <%= as_euro(balances_sum) %>
             </td>
         </tr>
 
@@ -21,7 +21,7 @@
 
                 <th scope="row"><%=bookings.first.category.name%></th>
                 <td class="text-end <%= css_currency_bg(category_sum) %>">
-                    <%= currency_as_euro(category_sum) %>
+                    <%= as_euro(category_sum) %>
                 </td>
             </tr>
         <% end %>

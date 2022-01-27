@@ -20,7 +20,7 @@
             <% for i in 1..12 do %>
                 <% balance = calc_balances_per_month(i, @balances_per_year) %>
                 <td class="col-1 <%= css_currency_bg(balance) %>">
-                    <%= currency_as_euro(balance) %>
+                    <%= as_euro(balance) %>
                 </td>
             <% end %>
         </tr>
@@ -31,7 +31,7 @@
                     <% sum = calc_category_per_month(i, bookings) %>
 
                     <td class="col-1 <%= css_currency_bg(sum) %>">
-                        <%= currency_as_euro(sum) %>
+                        <%= as_euro(sum) %>
                     </td>
                 <% end %>
             </tr>
