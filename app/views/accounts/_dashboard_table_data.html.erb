@@ -18,10 +18,7 @@
     <tbody>
         <tr class="text-end">
             <% for i in 1..12 do %>
-                <% 
-                    value = @balances_per_year.find_by(:month => i)
-                    balance = value.present? ? value.balance : 0
-                %>
+                <% balance = calc_balances_per_month(i, @balances_per_year) %>
                 <td class="col-1 <%= css_currency_background(balance) %>"><%= currency_as_euro(balance) %></td>
             <% end %>
         </tr>
@@ -29,10 +26,8 @@
         <% @account.bookings.group_by(&:category_id).values.each do |bookings| %>
             <tr class="text-end">
                 <% for i in 1..12 do %>
-                    <%
-                        bookings_per_month = bookings.select { |booking| booking.booked_at.mon == i}
-                        sum = bookings_per_month.inject(0) { |sum, item| sum + item.amount }
-                    %>
+                    <% sum = calc_category_per_month(i, bookings) %>
+
                     <td class="col-1 <%= css_currency_background(sum) %>"><%= currency_as_euro(sum) %></td>
                 <% end %>
             </tr>

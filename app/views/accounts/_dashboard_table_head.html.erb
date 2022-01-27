@@ -7,7 +7,7 @@
     </thead>
     <tbody>
         <tr styles="border-spacing: 0 20px;">
-            <%  balances_sum = @balances_per_year.inject(0) { |sum, item| sum + item.balance } %>
+            <%  balances_sum = calc_balances_per_year(@balances_per_year) %>
 
             <th scope="row">balance</th>
             <td class="text-end <%= css_currency_background(balances_sum) %>">
@@ -17,7 +17,7 @@
 
         <% @account.bookings.group_by(&:category_id).each do |category_id, bookings| %>
             <tr>
-                <% category_sum = bookings.inject(0) { |sum, item| sum + item.amount } %>
+                <% category_sum = calc_category_per_year(bookings) %>
 
                 <th scope="row"><%=bookings.first.category.name%></th>
                 <td class="text-end <%= css_currency_background(category_sum) %>">
