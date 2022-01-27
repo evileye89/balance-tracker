@@ -1,0 +1,10 @@
+table {
+    tr:hover {
+        td { background-color: rgba($color-secondary, 0.2); }
+        td.bg-negative{ background-color: rgba($color-negative, 0.4); }
+        td.bg-positive { background-color: rgba($color-positive, 0.6); }
+    }
+
+    .bg-negative { background-color: $color-negative; }
+    .bg-positive { background-color: $color-positive; }
+}
