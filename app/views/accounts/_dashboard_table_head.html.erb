@@ -10,7 +10,7 @@
             <%  balances_sum = calc_balances_per_year(@balances_per_year) %>
 
             <th scope="row">balance</th>
-            <td class="text-end <%= css_currency_background(balances_sum) %>">
+            <td class="text-end <%= css_currency_bg(balances_sum) %>">
                 <%= currency_as_euro(balances_sum) %>
             </td>
         </tr>
@@ -20,7 +20,7 @@
                 <% category_sum = calc_category_per_year(bookings) %>
 
                 <th scope="row"><%=bookings.first.category.name%></th>
-                <td class="text-end <%= css_currency_background(category_sum) %>">
+                <td class="text-end <%= css_currency_bg(category_sum) %>">
                     <%= currency_as_euro(category_sum) %>
                 </td>
             </tr>
