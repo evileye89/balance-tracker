@@ -22,7 +22,7 @@
                     value = @balances_per_year.find_by(:month => i)
                     balance = value.present? ? value.balance : 0
                 %>
-                <td class="col-1"><%= currency_as_euro(balance) %></td>
+                <td class="col-1 <%= css_currency_background(balance) %>"><%= currency_as_euro(balance) %></td>
             <% end %>
         </tr>
 
@@ -32,9 +32,8 @@
                     <%
                         bookings_per_month = bookings.select { |booking| booking.booked_at.mon == i}
                         sum = bookings_per_month.inject(0) { |sum, item| sum + item.amount }
-                        background_cls = sum >= 0 ? 'bg-success' : 'bg-danger'
                     %>
-                    <td class="col-1 <%= background_cls %>"><%= currency_as_euro(sum) %></td>
+                    <td class="col-1 <%= css_currency_background(sum) %>"><%= currency_as_euro(sum) %></td>
                 <% end %>
             </tr>
         <% end %>

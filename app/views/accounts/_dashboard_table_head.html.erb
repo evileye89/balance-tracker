@@ -7,21 +7,21 @@
     </thead>
     <tbody>
         <tr styles="border-spacing: 0 20px;">
+            <%  balances_sum = @balances_per_year.inject(0) { |sum, item| sum + item.balance } %>
+
             <th scope="row">balance</th>
-            <td class="text-end">
-                <%= currency_as_euro(@balances_per_year.inject(0) { |sum, item| sum + item.balance }) %>
+            <td class="text-end <%= css_currency_background(balances_sum) %>">
+                <%= currency_as_euro(balances_sum) %>
             </td>
         </tr>
 
         <% @account.bookings.group_by(&:category_id).each do |category_id, bookings| %>
             <tr>
-                <%
-                    sum = bookings.inject(0) { |sum, item| sum + item.amount }
-                    background_cls = sum.positive? ? 'bg-success' : 'bg-danger'
-                %>
+                <% category_sum = bookings.inject(0) { |sum, item| sum + item.amount } %>
+
                 <th scope="row"><%=bookings.first.category.name%></th>
-                <td class="text-end <%= background_cls %>">
-                    <%= currency_as_euro(sum) %>
+                <td class="text-end <%= css_currency_background(category_sum) %>">
+                    <%= currency_as_euro(category_sum) %>
                 </td>
             </tr>
         <% end %>
