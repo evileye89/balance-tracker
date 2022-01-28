@@ -1,4 +1,8 @@
 class BalancesController < ApplicationController
+    def index
+        @balances = Balance.all
+    end
+
     def show
         @balance = Balance.find(params[:id])
     end
@@ -23,7 +27,7 @@ class BalancesController < ApplicationController
     
     def update
         @balance = Balance.find(params[:id])
-    
+
         if @balance.update(balance_params)
             redirect_to @balance
         else
