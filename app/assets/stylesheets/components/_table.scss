@@ -8,3 +8,41 @@ table {
     .bg-negative { background-color: $color-negative; }
     .bg-positive { background-color: $color-positive; }
 }
+
+.dashboard {
+    .dashboard-row-head {
+        div { padding: 0; margin: 0; }
+        div { background-color: $color-dark; }
+    }
+
+    .dashboard-row {        
+        div { padding: 0; margin: 0; }
+
+        div { background-color: $color-dark; }
+        div.bg-negative { background-color: $color-negative; }
+        div.bg-positive { background-color: $color-positive; }
+
+        &:hover {
+            div { background-color: rgba($color-secondary, 0.2); }
+            div.bg-negative{ background-color: rgba($color-negative, 0.4); }
+            div.bg-positive { background-color: rgba($color-positive, 0.6); }
+            
+        }
+    }
+
+    .dashboard-col {
+        display: flex;
+
+        div {
+            padding: 5px 10px;
+        }
+    }
+
+    .dashboard-border-bottom {
+        border-bottom: 1px solid $color-lightgrey;
+    }
+
+    .dashboard-border-right {
+        border-right: 1px solid white;
+    }
+}

@@ -1,0 +1,21 @@
+<% @account.bookings.group_by(&:category_id).values.each do |bookings| %>
+    <div class="dashboard-row row dashboard-border-bottom text-end">
+        <div class="dashboard-col col-2 dashboard-border-right border-2">
+            <% category_sum = calc_category_per_year(bookings) %>
+
+            <div class="col-6 text-start fw-bold"><%=bookings.first.category.name%></div>
+            <div class="col-6 <%= css_currency_bg(category_sum) %>">
+                <%= as_euro(category_sum) %>
+            </div>
+        </div>
+        <div class="dashboard-col col-10">
+            <% for i in 1..12 do %>
+                <% category_sum = calc_category_per_month(i, bookings) %>
+
+                <div class="col-1 <%= css_currency_bg(category_sum) %>">
+                    <%= as_euro(category_sum) %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% end %>

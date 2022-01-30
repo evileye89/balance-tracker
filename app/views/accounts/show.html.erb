@@ -1,9 +1,11 @@
 <h1>Account</h1>
 
-<div class="mb-2">
+<div class="my-4">
     <%= link_to "edit", edit_account_path(@account) %>
     | <%= link_to 'delete', account_path(@account), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
+
+<h3>Details</h3>
 
 <div class="row">
     <div class="col-6 text-end">name: </div>
@@ -16,6 +18,12 @@
 
 <h3>Dashboard</h3>
 
-<%= render "dashboard" %>
+<div class="dashboard">
+    <%= render "accounts/dashboard/head" %>
+    <%= render "accounts/dashboard/balances" %>
+    <%= render "accounts/dashboard/categories" %>
+</div>
 
-<%= render "back_to_accounts" %>
+<div class="container mt-4">
+    <%= render "back_to_accounts" %>
+</div>

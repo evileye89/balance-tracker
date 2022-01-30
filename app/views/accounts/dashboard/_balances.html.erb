@@ -1,0 +1,19 @@
+<div class="dashboard-row row dashboard-border-bottom text-end">
+    <div class="dashboard-col col-2 dashboard-border-right border-2">
+        <%  balance_sum = calc_balances_per_year(@balances_per_year) %>
+
+        <div class="col-6 text-start fw-bold">balance</div>
+        <div class="col-6 <%= css_currency_bg(balance_sum) %>">
+            <%= as_euro(balance_sum) %>
+        </div>
+    </div>
+    <div class="dashboard-col col-10">
+        <% for i in 1..12 do %>
+            <% balance_sum = calc_balances_per_month(i, @balances_per_year) %>
+
+            <div class="col-1 <%= css_currency_bg(balance_sum) %>">
+                <%= as_euro(balance_sum) %>
+            </div>
+        <% end %>
+    </div>
+</div>
