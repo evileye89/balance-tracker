@@ -18,12 +18,16 @@
 
 <h3>Dashboard</h3>
 
+<div class="container my-4">
+    <%= render "select_year" %>
+</div>
+
 <div class="dashboard">
     <%= render "accounts/dashboard/head" %>
     <%= render "accounts/dashboard/balances" %>
     <%= render "accounts/dashboard/categories" %>
 </div>
 
-<div class="container mt-4">
+<div class="container my-4">
     <%= render "back_to_accounts" %>
 </div>

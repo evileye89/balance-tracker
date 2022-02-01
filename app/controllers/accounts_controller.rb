@@ -5,7 +5,9 @@ class AccountsController < ApplicationController
 
     def show
         @account = Account.find(params[:id])
-        @balances_per_year = @account.balances.where(:year => 2021)
+        @year = params[:year] || Date.today.year
+        @balances_per_year = @account.balances.where(:year => @year)
+        @bookings_per_year = @account.bookings.where("cast(strftime('%Y', booked_at) as int) = ?", @year)
     end
 
     def new
