@@ -18,6 +18,11 @@ direnv will start a nix-shell including all needed dependencies when switching t
 
 go to localhost:3000
 
+## run environment
+> rails s -e staging
+
+> rails db:migrate RAILS_ENV=staging
+
 # init
 > nix-shell \
   -p "ruby.withPackages (ps: with ps; [ rails ])" \
