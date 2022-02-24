@@ -10,7 +10,7 @@
             <a href="<%= booking_path(booking) %>">    
                 <div class="row">
                     <div class="col-3"><%= date_as_en_locale(booking.booked_at) %></div>
-                    <div class="col-3 text-end"><%= currency_as_euro(booking.amount) %></div>
+                    <div class="col-3 text-end"><%= as_euro(booking.amount) %></div>
                     <div class="col-3"><%= booking.category.name %></div>
                     <div class="col-3"><%= booking.comment %></div>
                 </div>
